@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Rio - Scaletta </title>
+    <title>Rio - Scaletta 2026</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root { 
-            /* Sfondo grigio leggermente più scuro */
             --bg: #ced4da; 
             --header-bg: #1a1a1a; 
             --card: #ffffff; 
             --accent: #00adb5; 
             --text-main: #222; 
             --text-sub: #495057;
-            /* Nuovi colori evidenziatori pastello */
             --pastello-rosa: #ffc2d1;
             --pastello-azzurro: #bde0fe;
         }
 
         body { 
-            /* Carattere impostato su Arial */
             font-family: 'Arial', sans-serif; 
             background: var(--bg); 
             color: var(--text-main); 
@@ -42,12 +39,7 @@
             box-sizing: border-box;
         }
 
-        .logo-svg {
-            width: 120px;
-            height: auto;
-            margin-bottom: 5px;
-        }
-
+        .logo-svg { width: 120px; height: auto; margin-bottom: 5px; }
         h1.title-app { letter-spacing: 4px; font-size: 1.2em; font-weight: 900; text-transform: uppercase; margin: 0; }
 
         .live-timer {
@@ -56,7 +48,6 @@
             cursor: pointer; box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
         }
 
-        /* Box durata totale */
         .total-duration-box {
             background: #343a40; color: white; padding: 10px 20px; border-radius: 12px;
             margin-bottom: 15px; font-weight: bold; text-align: center; font-size: 0.9em;
@@ -65,7 +56,7 @@
         .search-container { width: 100%; max-width: 600px; padding: 0 20px; margin-bottom: 20px; box-sizing: border-box; }
         #searchInput {
             width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid #adb5bd;
-            font-size: 16px; outline: none; transition: 0.3s; box-sizing: border-box; font-family: 'Arial', sans-serif;
+            font-size: 16px; outline: none; box-sizing: border-box;
         }
 
         .page { display: none; flex-direction: column; align-items: center; min-height: 100vh; }
@@ -76,8 +67,7 @@
         .button-group { display: flex; gap: 10px; margin-bottom: 20px; width: 100%; }
         .btn { 
             flex: 1; border: none; padding: 15px; border-radius: 12px; 
-            font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 0.9em;
-            display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Arial', sans-serif;
+            font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
         }
         .btn-add { background: var(--accent); color: white; }
         .btn-pdf { background: #495057; color: white; }
@@ -97,14 +87,13 @@
             padding: 30px; min-height: 60vh; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 120px; position: relative;
         }
 
-        /* Stile campi Tonalità e Durata nel dettaglio */
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
         .info-field { background: #f1f3f5; padding: 10px; border-radius: 10px; border: 1px solid #dee2e6; }
         .info-field label { font-size: 0.7em; text-transform: uppercase; color: #868e96; display: block; margin-bottom: 2px; }
         .info-field div { font-weight: bold; font-size: 1.1em; min-height: 1.2em; outline: none; }
 
         .media-link-container { margin: 10px 0; display: flex; gap: 10px; align-items: center; }
-        #mediaUrlInput { flex-grow: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd; font-family: 'Arial', sans-serif; }
+        #mediaUrlInput { flex-grow: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd; }
         .btn-play-media { background: #1DB954; color: white; border: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
         .text-tools { display: flex; gap: 10px; margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 10px; }
@@ -123,7 +112,7 @@
                 <text x="50%" y="30" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="32" fill="white">RIO</text>
                 <rect x="20" y="32" width="60" height="3" fill="#00adb5" />
             </svg>
-            <h1 class="title-app">SCALETTA </h1>
+            <h1 class="title-app">SCALETTA</h1>
         </header>
 
         <div class="live-timer" onclick="toggleTimer()">
@@ -149,8 +138,8 @@
 
     <div id="pageDetail" class="page">
         <div class="header-detail" style="width: 100%; padding: 20px; display: flex; justify-content: space-between; box-sizing: border-box;">
-            <button onclick="showList()" style="background:#333; color:white; border:none; padding:12px 20px; border-radius:12px; font-weight:bold; font-family:Arial;">← TORNA</button>
-            <button onclick="clearCurrentCanvas()" style="background:none; border:none; color: #666; font-family:Arial;">Pulisci Disegni</button>
+            <button onclick="showList()" style="background:#333; color:white; border:none; padding:12px 20px; border-radius:12px; font-weight:bold;">← TORNA</button>
+            <button onclick="clearCurrentCanvas()" style="background:none; border:none; color: #666;">Pulisci Disegni</button>
         </div>
         
         <div class="content-area" id="editorArea">
@@ -161,27 +150,27 @@
                 <button class="highlight-btn" style="background: #ffffff;" onclick="formatDoc('removeFormat')">❌</button>
             </div>
 
-            <h2 id="detailTitle" contenteditable="true" oninput="updateCurrentSongData()">Titolo</h2>
-            <div id="detailAuthor" contenteditable="true" oninput="updateCurrentSongData()">Autore</div>
+            <h2 id="detailTitle" contenteditable="true" onblur="saveCurrentSongData()">Titolo</h2>
+            <div id="detailAuthor" contenteditable="true" onblur="saveCurrentSongData()">Autore</div>
             
             <div class="info-grid">
                 <div class="info-field">
                     <label>Tonalità</label>
-                    <div id="detailKey" contenteditable="true" oninput="updateCurrentSongData()">-</div>
+                    <div id="detailKey" contenteditable="true" onblur="saveCurrentSongData()">-</div>
                 </div>
                 <div class="info-field">
                     <label>Durata (min:sec)</label>
-                    <div id="detailDuration" contenteditable="true" oninput="updateCurrentSongData()">0:00</div>
+                    <div id="detailDuration" contenteditable="true" onblur="saveCurrentSongData()">0:00</div>
                 </div>
             </div>
 
             <div class="media-link-container">
-                <input type="text" id="mediaUrlInput" placeholder="Link Spotify/YouTube..." oninput="updateCurrentSongData()">
+                <input type="text" id="mediaUrlInput" placeholder="Link Spotify/YouTube..." onblur="saveCurrentSongData()">
                 <button class="btn-play-media" onclick="openMediaLink()">▶ ASCOLTA</button>
             </div>
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <div id="detailText" contenteditable="true" oninput="updateCurrentSongData()" style="white-space: pre-wrap; min-height: 300px; outline:none;">Testo...</div>
+            <div id="detailText" contenteditable="true" onblur="saveCurrentSongData()" style="white-space: pre-wrap; min-height: 300px; outline:none;">Testo...</div>
             
             <div id="canvasContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
                 <canvas id="noteCanvas"></canvas>
@@ -196,7 +185,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDJR-zhA_jIZAvmv52Vj1q7FEBc4MOReZQ",
@@ -220,14 +209,20 @@
         const canvas = document.getElementById('noteCanvas');
         const ctx = canvas.getContext('2d');
 
+        // Caricamento dati iniziale
         onValue(songsRef, (snapshot) => {
             const data = snapshot.val();
-            songs = data ? (Array.isArray(data) ? data : Object.values(data)) : [];
+            // Trasformiamo l'oggetto Firebase in array e lo ordiniamo per "order"
+            if (data) {
+                songs = Object.keys(data).map(key => ({...data[key], firebaseKey: key}));
+                songs.sort((a, b) => (a.order || 0) - (b.order || 0));
+            } else {
+                songs = [];
+            }
             renderList();
             calculateTotalTime();
         });
 
-        // Funzione per calcolare la somma delle durate
         function calculateTotalTime() {
             let totalSeconds = 0;
             songs.forEach(s => {
@@ -239,19 +234,16 @@
             const h = Math.floor(totalSeconds / 3600);
             const m = Math.floor((totalSeconds % 3600) / 60);
             const s = totalSeconds % 60;
-            const timeString = h > 0 
-                ? `${h}h ${m}m ${s}s` 
-                : `${m}:${s.toString().padStart(2, '0')}`;
-            document.getElementById('totalTimeDisplay').innerText = timeString;
+            document.getElementById('totalTimeDisplay').innerText = h > 0 ? `${h}h ${m}m` : `${m}:${s.toString().padStart(2, '0')}`;
         }
 
         window.renderList = function() {
             const container = document.getElementById('songContainer');
             container.innerHTML = '';
             songs.forEach((song) => {
-                if(!song || !song.id) return;
                 const div = document.createElement('div');
                 div.className = 'song-item';
+                div.setAttribute('data-id', song.id);
                 div.innerHTML = `
                     <div class="handle" style="cursor:grab; color:#adb5bd; font-size:24px;">☰</div>
                     <div class="song-info" style="flex-grow:1" onclick="showDetail(${song.id})">
@@ -259,11 +251,10 @@
                         <span>${song.author}</span>
                         <div class="song-meta-preview">${song.key || '-'} | ${song.duration || '0:00'}</div>
                     </div>
-                    <button style="background:none; border:none; color:#ccc; font-size:18px;" onclick="deleteSong(event, ${song.id})">✕</button>
+                    <button style="background:none; border:none; color:#ccc; font-size:18px;" onclick="deleteSong(event, '${song.firebaseKey}')">✕</button>
                 `;
                 container.appendChild(div);
             });
-            filterSongs();
         };
 
         window.filterSongs = function() {
@@ -274,18 +265,18 @@
         };
 
         window.addNewSong = function() {
+            const newId = Date.now();
+            const newSongRef = ref(db, 'songs/' + newId);
             const newSong = { 
-                id: Date.now(), 
+                id: newId, 
                 title: "Nuovo Brano", 
                 author: "Artista", 
                 text: "", 
-                mediaUrl: "", 
                 key: "Do", 
-                duration: "3:30", 
-                drawing: null 
+                duration: "3:30",
+                order: songs.length 
             };
-            songs.unshift(newSong);
-            set(songsRef, songs);
+            set(newSongRef, newSong);
         };
 
         window.showDetail = function(id) {
@@ -313,24 +304,25 @@
             }, 100);
         };
 
-        window.updateCurrentSongData = function() {
+        window.saveCurrentSongData = function() {
+            if(!currentSongId) return;
             const song = songs.find(s => s.id === currentSongId);
             if(song) {
-                song.title = document.getElementById('detailTitle').innerText;
-                song.author = document.getElementById('detailAuthor').innerText;
-                song.key = document.getElementById('detailKey').innerText;
-                song.duration = document.getElementById('detailDuration').innerText;
-                song.text = document.getElementById('detailText').innerHTML;
-                song.mediaUrl = document.getElementById('mediaUrlInput').value;
-                set(songsRef, songs);
+                const updates = {};
+                updates['/songs/' + currentSongId + '/title'] = document.getElementById('detailTitle').innerText;
+                updates['/songs/' + currentSongId + '/author'] = document.getElementById('detailAuthor').innerText;
+                updates['/songs/' + currentSongId + '/key'] = document.getElementById('detailKey').innerText;
+                updates['/songs/' + currentSongId + '/duration'] = document.getElementById('detailDuration').innerText;
+                updates['/songs/' + currentSongId + '/text'] = document.getElementById('detailText').innerHTML;
+                updates['/songs/' + currentSongId + '/mediaUrl'] = document.getElementById('mediaUrlInput').value;
+                update(ref(db), updates);
             }
         };
 
         window.showList = function() { 
-            saveCurrentCanvas(); 
+            saveCurrentCanvas();
             document.getElementById('pageDetail').classList.remove('active'); 
             document.getElementById('pageList').classList.add('active'); 
-            calculateTotalTime();
         };
 
         window.toggleTimer = function() {
@@ -357,7 +349,10 @@
             if(url) window.open(url, '_blank'); 
         };
 
-        window.formatDoc = function(c, v) { document.execCommand(c, false, v); updateCurrentSongData(); };
+        window.formatDoc = function(c, v) { 
+            document.execCommand(c, false, v); 
+            saveCurrentSongData();
+        };
 
         window.setTool = function(t) { 
             currentTool = (currentTool === t) ? null : t; 
@@ -367,11 +362,11 @@
         };
 
         function saveCurrentCanvas() { 
-            const song = songs.find(s => s.id === currentSongId); 
-            if(song && currentSongId) { 
-                song.drawing = canvas.toDataURL(); 
-                set(songsRef, songs); 
-            } 
+            if(!currentSongId) return;
+            const dataUrl = canvas.toDataURL();
+            const updates = {};
+            updates['/songs/' + currentSongId + '/drawing'] = dataUrl;
+            update(ref(db), updates);
         }
 
         window.clearCurrentCanvas = function() { 
@@ -381,14 +376,14 @@
             } 
         };
 
-        window.deleteSong = function(e, id) { 
+        window.deleteSong = function(e, firebaseKey) { 
             e.stopPropagation(); 
             if(confirm("Eliminare definitivamente questo brano?")) { 
-                songs = songs.filter(s => s.id !== id); 
-                set(songsRef, songs); 
+                remove(ref(db, 'songs/' + firebaseKey));
             } 
         };
 
+        // Gestione Disegno
         canvas.addEventListener('pointerdown', (e) => {
             if(!currentTool) return; drawing = true;
             const rect = canvas.getBoundingClientRect();
@@ -399,28 +394,34 @@
             const rect = canvas.getBoundingClientRect();
             ctx.lineCap = 'round'; ctx.lineWidth = currentTool === 'pen' ? 2 : 30;
             ctx.globalCompositeOperation = currentTool === 'pen' ? 'source-over' : 'destination-out';
-            ctx.strokeStyle = '#ffff00'; ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top); ctx.stroke();
+            ctx.strokeStyle = '#ffff00'; 
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top); ctx.stroke();
         });
-        canvas.addEventListener('pointerup', () => { drawing = false; saveCurrentCanvas(); });
+        canvas.addEventListener('pointerup', () => { if(drawing) { drawing = false; saveCurrentCanvas(); } });
 
+        // Ordinamento trascinabile
         new Sortable(document.getElementById('songContainer'), {
-            animation: 150, handle: '.handle', onEnd: () => {
-                const newOrder = [];
-                document.querySelectorAll('.song-item b').forEach(el => {
-                    const song = songs.find(s => s.title === el.innerText);
-                    if(song) newOrder.push(song);
+            animation: 150, 
+            handle: '.handle', 
+            onEnd: () => {
+                const updates = {};
+                document.querySelectorAll('.song-item').forEach((el, index) => {
+                    const id = el.getAttribute('data-id');
+                    updates['/songs/' + id + '/order'] = index;
                 });
-                songs = newOrder; set(songsRef, songs);
+                update(ref(db), updates);
             }
         });
 
         window.downloadPDF = function() {
-            const { jsPDF } = window.jspdf; const doc = new jsPDF();
+            const { jsPDF } = window.jspdf; 
+            const doc = new jsPDF();
             doc.setFont("helvetica", "bold");
             doc.text("SCALETTA RIO 2026", 20, 20);
+            doc.setFontSize(10);
             doc.setFont("helvetica", "normal");
             songs.forEach((s, i) => {
-                doc.text(`${i+1}. ${s.title} - ${s.author} (${s.key} | ${s.duration})`, 20, 40+(i*10));
+                doc.text(`${i+1}. ${s.title} - ${s.author} [${s.key}] (${s.duration})`, 20, 40+(i*10));
             });
             doc.save("scaletta.pdf");
         };
